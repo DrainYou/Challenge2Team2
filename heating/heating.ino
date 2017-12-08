@@ -22,7 +22,9 @@ void loop() {
   temperature = getTemperature(input);
   
   //temperature set point read from serial port 
-  byte trueTemp = Serial.read();
+  if(Serial.available>0){
+    byte trueTemp = Serial.read();
+  }
   
   if (temperature > trueTemp)
   {
