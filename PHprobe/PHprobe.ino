@@ -6,7 +6,7 @@ float R = 8.314510;
 float T = 298;
 boolean addBase;
 boolean addAcid;
-float maintainPH = 3;
+float maintainPH = 7;
 
 void setup()
 {
@@ -15,9 +15,10 @@ void setup()
   pinMode(Pin, INPUT);
   pinMode(PinAcid, OUTPUT);
   pinMode(PinBase, OUTPUT);
-     while(Serial.available() == 0);
-   maintainPH = Serial.parseFloat();
- 
+
+  while(Serial.available() > 0){
+    maintainPH = Serial.read();
+  }
 }
 
 
@@ -37,22 +38,17 @@ void loop()
         analogWrite(PinBase, 180);
         Serial.println(calculatePH());
         delay(1000);
-    }
+      }
     }
     analogWrite(PinBase, 0);
-      
-      
-      
-     if (calculatePH() > (maintainPH + 0.5)) {
+        
+    if (calculatePH() > (maintainPH + 0.5)) {
        while(calculatePH() > maintainPH){
          analogWrite(PinAcid, 180);
-        Serial.println(calculatePH());
-        delay(1000);
-     }
+         Serial.println(calculatePH());
+         delay(1000);
+       }
      }
      analogWrite(PinAcid, 0);
     
-    
-  
-
 }
