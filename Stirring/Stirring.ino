@@ -25,10 +25,10 @@ void setup()
   
   attachInterrupt(readsensor,measure,RISING);
   analogspeed=20;
-  
-  while(Serial.available() > 0){
-    motorspeed= Serial.read();
-  }
+  do {
+  } while (Serial.available()==0);
+
+  motorspeed= Serial.read();
   
   rpm=0;
   interrupts();
