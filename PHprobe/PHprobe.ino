@@ -36,7 +36,7 @@ void loop()
       while(calculatePH() < maintainPH) {
         analogWrite(PinBase, 180);
         Serial.println(calculatePH());
-        delay(1000);
+        delay(100);
       }
     }
     analogWrite(PinBase, 0);
@@ -45,7 +45,7 @@ void loop()
        while(calculatePH() > maintainPH){
          analogWrite(PinAcid, 180);
          Serial.println(calculatePH());
-         delay(1000);
+         delay(100);
        }
      }
      analogWrite(PinAcid, 0);
