@@ -40,12 +40,6 @@ void loop()
 {
 //  Serial.println(rpm);
   
-  while(Serial.available()>0)
-    {
-    motorspeed=Serial.read();
-    }
-  
-  
   if(motorspeed<=1500&&motorspeed>=500)
     { 
       while(analogspeed>127)
