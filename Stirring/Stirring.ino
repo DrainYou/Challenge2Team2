@@ -38,7 +38,7 @@ void setup()
 
 void loop()
 {
-//  Serial.println(rpm);
+  Serial.println(rpm);
   
   if(motorspeed<=1500&&motorspeed>=500)
     { 
@@ -65,7 +65,7 @@ void loop()
       analogspeed = 0;
       analogWrite(power,analogspeed);
     }
-    
+    delay(100);
 }
 
 
