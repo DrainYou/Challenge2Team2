@@ -25,7 +25,7 @@ void loop() {
   input = analogRead(A0);
   temperature = getTemperature(input);
   
- 
+  Serial.println(temperature); 
   
   if (temperature > trueTemp)
   {
@@ -40,5 +40,5 @@ void loop() {
       digitalWrite(heatElement, HIGH);
   }
             
-  delay(1000);
+  delay(100);
 }
