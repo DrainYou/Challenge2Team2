@@ -1,6 +1,10 @@
 void setup() {
   Serial.begin(9600);   //Set the Serial port at 9600 baud rate
- 
+  //temperature set point read from serial port 
+  do{
+  } while (Serial.available() == 0);
+  float trueTemp = float(Serial.read());
+  
 }
 //Use the Steinhart-Hart equation to convert to degrees C
 double getTemperature(int rawADC) {
@@ -21,10 +25,7 @@ void loop() {
   input = analogRead(A0);
   temperature = getTemperature(input);
   
-  //temperature set point read from serial port 
-  if(Serial.available>0){
-    byte trueTemp = Serial.read();
-  }
+ 
   
   if (temperature > trueTemp)
   {
