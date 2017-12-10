@@ -28,7 +28,8 @@ void setup()
   do {
   } while (Serial.available()==0);
 
-  motorspeed= Serial.read();
+  motorspeed = Serial.read();
+  motorspeed = motorspeed * 20;
   
   rpm=0;
   interrupts();
