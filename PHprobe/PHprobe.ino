@@ -6,7 +6,7 @@ float R = 8.314510;
 float T = 298;
 boolean addBase;
 boolean addAcid;
-float maintainPH = 7;
+float maintainPH = 5;
 
 void setup()
 {
@@ -15,10 +15,9 @@ void setup()
   pinMode(Pin, INPUT);
   pinMode(PinAcid, OUTPUT);
   pinMode(PinBase, OUTPUT);
-
-  while(Serial.available() > 0){
-    maintainPH = Serial.read();
-  }
+  do {
+  } while (Serial.available()==0);
+  maintainPH = Serial.read();
 }
 
 
