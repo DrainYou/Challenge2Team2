@@ -12,6 +12,7 @@ void setup()
 {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  Serial.flush();
   pinMode(Pin, INPUT);
   pinMode(PinAcid, OUTPUT);
   pinMode(PinBase, OUTPUT);
@@ -22,7 +23,7 @@ void setup()
 
 
 float calculatePH() {
-  float volt = 1.65 - (3.3 / 1024) * (analogRead(Pin));
+  float volt = 1.68 - (3.3 / 1024) * (analogRead(Pin));
   float PH = 7 + ((volt*F) / (R * T * logf(10)));
   return PH;
 }

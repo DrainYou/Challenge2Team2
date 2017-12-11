@@ -14,7 +14,9 @@ void setup()
   pinMode(power,OUTPUT);
   attachInterrupt(readsensor,measure,RISING);
   analogspeed=0.0;
-  motorspeed=1500;
+  do {
+  } while (Serial.available == 0);
+  motorspeed = Serial.read();
   rpm=0;
   interrupts();
 }
@@ -22,12 +24,6 @@ void setup()
 void loop()
 {
   Serial.println(rpm);
-
-  if(Serial.available()>0)
-    {
-      motorspeed=Serial.read();
-      
-    }
   if(motorspeed<=1500&&motorspeed>=500)
     { 
       if(analogspeed>127)
@@ -51,7 +47,7 @@ void loop()
     }
     else
       analogWrite(power,0);
-    
+    delay(100);
 }
 
 void measure()
