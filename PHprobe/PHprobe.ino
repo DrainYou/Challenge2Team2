@@ -16,9 +16,10 @@ void setup()
   pinMode(Pin, INPUT);
   pinMode(PinAcid, OUTPUT);
   pinMode(PinBase, OUTPUT);
-  do {
-  } while (Serial.available()==0);
-  maintainPH = Serial.read();
+
+  while (Serial.available()==0){
+  }
+  maintainPH = Serial.parseFloat();
 }
 
 

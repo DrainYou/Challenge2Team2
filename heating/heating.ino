@@ -1,3 +1,5 @@
+float trueTemp;
+
 void setup() {
   Serial.begin(9600);   //Set the Serial port at 9600 baud rate
   //temperature set point read from serial port 

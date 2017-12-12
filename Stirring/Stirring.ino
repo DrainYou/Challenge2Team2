@@ -14,10 +14,8 @@ void setup()
   pinMode(power,OUTPUT);
   attachInterrupt(readsensor,measure,RISING);
   analogspeed=0.0;
-  do {
-  } while (Serial.available == 0);
-  motorspeed = Serial.read();
-  rpm=0;
+  motorspeed = 600;
+  rpm=600;
   interrupts();
 }
 
